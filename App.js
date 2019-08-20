@@ -1,21 +1,22 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import MainMenu from './components/MainMenu'
+import Header from './components/Header'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <MainMenu />
+      <Header />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    flex: 2,
+    flexDirection: 'row',
+    backgroundColor: 'rgb(234, 34, 45)',
+    alignItems: 'flex-start',
     justifyContent: 'center',
   },
 });
