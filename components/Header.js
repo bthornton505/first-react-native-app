@@ -11,7 +11,6 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   headerStyle: {
-    flex: 1,
     backgroundColor: 'black',
     padding: 20,
   },
@@ -19,6 +18,6 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 30,
     textAlign: 'center',
-    paddingTop: 30,
+    paddingTop: 40,
   }
 });
