@@ -8,15 +8,21 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-      <View style={styles.headerStyle}>
-        <Text style={styles.menuText}>POKEDEX</Text>
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerText}>POKEDEX</Text>
       </View>
 
-      <View style={styles.pokemonButton}>
-        <Button
-          onPress={() => alert('You clicked the button!')}
-          title="Press me"
-        />
+      <View style={styles.center}>
+        <Text>This is the Center</Text>
+      </View>
+
+      <View style={styles.mainMenuContainer}>
+        <View style={styles.pokemonButton}>
+          <Button
+            onPress={() => alert('You clicked the button!')}
+            title="It's working"
+          />
+        </View>
       </View>
 
     </View>
@@ -25,18 +31,26 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'rgb(234, 34, 45)',
+    flex: 1
+  },
+  headerContainer: {
+    height: '12%',
+    alignItems: 'center',
     justifyContent: 'center',
-  },
-  headerStyle: {
     backgroundColor: 'black',
-    padding: 20,
   },
-  menuText: {
+  headerText: {
+    // fontFamily: 'Press Start 2P',
     color: 'white',
     fontSize: 30,
-    textAlign: 'center',
-    paddingTop: 40,
+    paddingTop: 32,
+  },
+  center: {
+    height: '40%'
+  },
+  mainMenuContainer: {
+    height: '50%',
+    backgroundColor: 'rgb(234, 34, 45)',
   },
   pokemonButton: {
     margin: 20,
