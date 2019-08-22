@@ -34,10 +34,11 @@ const styles = StyleSheet.create({
     flex: 1
   },
   headerContainer: {
-    height: '12%',
+    height: '15%',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'rgb(234, 34, 45)',
+    // backgroundColor: 'black',
   },
   headerText: {
     // fontFamily: 'Press Start 2P',
@@ -46,19 +47,22 @@ const styles = StyleSheet.create({
     paddingTop: 32,
   },
   center: {
-    height: '30%',
+    height: '27%',
     alignItems: 'center',
     backgroundColor: 'rgb(234, 34, 45)',
   },
   mainImg: {
     width: 700,
     height: 300,
+    position: 'relative',
+    bottom: 30,
     shadowOpacity: 1,
     shadowRadius: 23,
   },
   mainMenuContainer: {
     height: '58%',
     backgroundColor: 'rgb(234, 34, 45)',
+    // backgroundColor: 'black',
   },
   pokemonButton: {
     margin: 50,
