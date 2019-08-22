@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Image } from 'react-native';
 
 import Header from './components/Header'
 import MainMenu from './containers/MainMenu'
@@ -13,14 +13,14 @@ export default function App() {
       </View>
 
       <View style={styles.center}>
-        <Text>This is the Center</Text>
+        <Image style={styles.mainImg} source={require('./images/derp-pikachu-v2.png')} />
       </View>
 
       <View style={styles.mainMenuContainer}>
         <View style={styles.pokemonButton}>
           <Button
-            onPress={() => alert('You clicked the button!')}
-            title="It's working"
+            onPress={() => alert('151 Awesome Pokemon!')}
+            title="Pokemon"
           />
         </View>
       </View>
@@ -37,25 +37,33 @@ const styles = StyleSheet.create({
     height: '12%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'black',
+    backgroundColor: 'rgb(234, 34, 45)',
   },
   headerText: {
     // fontFamily: 'Press Start 2P',
     color: 'white',
-    fontSize: 30,
+    fontSize: 45,
     paddingTop: 32,
   },
   center: {
-    height: '40%'
+    height: '30%',
+    alignItems: 'center',
+    backgroundColor: 'rgb(234, 34, 45)',
+  },
+  mainImg: {
+    width: 700,
+    height: 300,
+    shadowOpacity: 1,
+    shadowRadius: 23,
   },
   mainMenuContainer: {
-    height: '50%',
+    height: '58%',
     backgroundColor: 'rgb(234, 34, 45)',
   },
   pokemonButton: {
-    margin: 20,
+    margin: 50,
     padding: 15,
-    backgroundColor: '#000',
+    backgroundColor: '#FFF',
     color: '#FFF'
   },
 });
