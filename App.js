@@ -1,32 +1,51 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import * as Font from 'expo-font';
 
 import Header from './components/Header'
 import MainMenu from './containers/MainMenu'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
+export default class App extends Component {
+  state = {
+    fontLoaded: false,
+  };
 
-      <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>POKEDEX</Text>
-      </View>
+  async componentDidMount() {
+    await Font.loadAsync({
+      'press-start-2p': require('./assets/fonts/PressStart2P-Regular.ttf')
+    });
 
-      <View style={styles.center}>
-        <Image style={styles.mainImg} source={require('./images/derp-pikachu-v2.png')} />
-      </View>
+    this.setState({ fontLoaded: true });
+  };
 
-      <View style={styles.mainMenuContainer}>
-        <View style={styles.pokemonButton}>
-          <Button
-            onPress={() => alert('151 Awesome Pokemon!')}
-            title="Pokemon"
-          />
+  render() {
+    return (
+      <View style={styles.container}>
+
+        <View style={styles.headerContainer}>
+          {
+            this.state.fontLoaded ? (
+              <Text style={styles.headerText}>POKEDEX</Text>
+            ) : null
+          }
         </View>
-      </View>
 
-    </View>
-  );
+        <View style={styles.center}>
+          <Image style={styles.mainImg} source={require('./images/derp-pikachu-v2.png')} />
+        </View>
+
+        <View style={styles.mainMenuContainer}>
+          <View style={styles.pokemonButton}>
+            <Button
+              onPress={() => alert('151 Awesome Pokemon!')}
+              title="Pokemon"
+            />
+          </View>
+        </View>
+
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -41,10 +60,11 @@ const styles = StyleSheet.create({
     // backgroundColor: 'black',
   },
   headerText: {
-    // fontFamily: 'Press Start 2P',
+    fontFamily: 'press-start-2p',
     color: 'white',
     fontSize: 45,
     paddingTop: 32,
+    top: 10
   },
   center: {
     height: '27%',
