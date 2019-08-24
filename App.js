@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import * as Font from 'expo-font';
 
 import Header from './components/Header'
@@ -18,10 +18,15 @@ export default class App extends Component {
     this.setState({ fontLoaded: true });
   };
 
+  handlePress = () => {
+    alert('151 Awesome Pokemon!')
+  }
+
   render() {
     return (
       <View style={styles.container}>
 
+       {/* Header Containter */}
         <View style={styles.headerContainer}>
           {
             this.state.fontLoaded ? (
@@ -30,16 +35,45 @@ export default class App extends Component {
           }
         </View>
 
+        {/* Pikachu Containter */}
         <View style={styles.center}>
           <Image style={styles.mainImg} source={require('./images/derp-pikachu-v2.png')} />
         </View>
 
+        {/* Main Menu Containter */}
         <View style={styles.mainMenuContainer}>
-          <View style={styles.pokemonButton}>
-            <Button
-              onPress={() => alert('151 Awesome Pokemon!')}
-              title="Pokemon"
-            />
+          <View style={styles.pokemonButtonContainer}>
+            <TouchableOpacity onPress={this.handlePress}>
+              {
+                this.state.fontLoaded ? (
+                  <Text style={styles.pokemonButtonText}>
+                    Pokemon
+                  </Text>
+                ) : null
+              }
+            </TouchableOpacity>
+          </View>
+          <View style={styles.pokemonButtonContainer}>
+            <TouchableOpacity onPress={this.handlePress}>
+              {
+                this.state.fontLoaded ? (
+                  <Text style={styles.pokemonButtonText}>
+                    Items
+                  </Text>
+                ) : null
+              }
+            </TouchableOpacity>
+          </View>
+          <View style={styles.pokemonButtonContainer}>
+            <TouchableOpacity onPress={this.handlePress}>
+              {
+                this.state.fontLoaded ? (
+                  <Text style={styles.pokemonButtonText}>
+                    Moves
+                  </Text>
+                ) : null
+              }
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -84,10 +118,19 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgb(234, 34, 45)',
     // backgroundColor: 'black',
   },
-  pokemonButton: {
-    margin: 50,
+  pokemonButtonContainer: {
+    marginTop: 20,
+    marginLeft: 50,
+    marginRight: 50,
     padding: 15,
     backgroundColor: '#FFF',
-    color: '#FFF'
+    borderWidth: 3,
+    borderRadius: 40,
+  },
+  pokemonButtonText: {
+    fontFamily: 'press-start-2p',
+    color: 'black',
+    textAlign: 'center',
+    padding: 12,
   },
 });
