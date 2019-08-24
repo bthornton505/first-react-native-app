@@ -30,7 +30,7 @@ export default class App extends Component {
         <View style={styles.headerContainer}>
           {
             this.state.fontLoaded ? (
-              <Text style={styles.headerText}>POKEDEX</Text>
+              <Text style={styles.header}>POKEDEX</Text>
             ) : null
           }
         </View>
@@ -42,33 +42,33 @@ export default class App extends Component {
 
         {/* Main Menu Containter */}
         <View style={styles.mainMenuContainer}>
-          <View style={styles.pokemonButtonContainer}>
+          <View style={styles.buttonContainer}>
             <TouchableOpacity onPress={this.handlePress}>
               {
                 this.state.fontLoaded ? (
-                  <Text style={styles.pokemonButtonText}>
+                  <Text style={styles.button}>
                     Pokemon
                   </Text>
                 ) : null
               }
             </TouchableOpacity>
           </View>
-          <View style={styles.pokemonButtonContainer}>
+          <View style={styles.buttonContainer}>
             <TouchableOpacity onPress={this.handlePress}>
               {
                 this.state.fontLoaded ? (
-                  <Text style={styles.pokemonButtonText}>
+                  <Text style={styles.button}>
                     Items
                   </Text>
                 ) : null
               }
             </TouchableOpacity>
           </View>
-          <View style={styles.pokemonButtonContainer}>
+          <View style={styles.buttonContainer}>
             <TouchableOpacity onPress={this.handlePress}>
               {
                 this.state.fontLoaded ? (
-                  <Text style={styles.pokemonButtonText}>
+                  <Text style={styles.button}>
                     Moves
                   </Text>
                 ) : null
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgb(234, 34, 45)',
     // backgroundColor: 'black',
   },
-  headerText: {
+  header: {
     fontFamily: 'press-start-2p',
     color: 'white',
     fontSize: 45,
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgb(234, 34, 45)',
     // backgroundColor: 'black',
   },
-  pokemonButtonContainer: {
+  buttonContainer: {
     marginTop: 20,
     marginLeft: 50,
     marginRight: 50,
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderRadius: 40,
   },
-  pokemonButtonText: {
+  button: {
     fontFamily: 'press-start-2p',
     color: 'black',
     textAlign: 'center',
