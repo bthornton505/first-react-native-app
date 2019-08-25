@@ -1,20 +1,44 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
-import PokemonTab from '../components/PokemonTab'
-
-export default class MainMenu extends Component {
-  render() {
-    return(
-      <View style={styles.mainMenuStyle}>
-        <PokemonTab />
+const MainMenu = (props) => {
+  return(
+    <View style={props.style.mainMenuContainer}>
+      <View style={props.style.buttonContainer}>
+        <TouchableOpacity onPress={props.handlePress}>
+          {
+            props.setFont ? (
+              <Text style={props.style.button}>
+                Pokemon
+              </Text>
+            ) : null
+          }
+        </TouchableOpacity>
       </View>
-    )
-  }
+      <View style={props.style.buttonContainer}>
+        <TouchableOpacity onPress={props.handlePress}>
+          {
+            props.setFont ? (
+              <Text style={props.style.button}>
+                Items
+              </Text>
+            ) : null
+          }
+        </TouchableOpacity>
+      </View>
+      <View style={props.style.buttonContainer}>
+        <TouchableOpacity onPress={props.handlePress}>
+          {
+            props.setFont ? (
+              <Text style={props.style.button}>
+                Moves
+              </Text>
+            ) : null
+          }
+        </TouchableOpacity>
+      </View>
+    </View>
+  )
 }
 
-const styles = StyleSheet.create({
-  mainMenuStyle: {
-    height: 800,
-  }
-})
+export default MainMenu;
