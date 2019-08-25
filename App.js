@@ -26,14 +26,7 @@ export default class App extends Component {
     return (
       <View style={styles.appContainer}>
 
-       {/* Header Containter */}
-        <View style={styles.headerContainer}>
-          {
-            this.state.fontLoaded ? (
-              <Text style={styles.header}>POKEDEX</Text>
-            ) : null
-          }
-        </View>
+       <Header style={styles} setFont={this.state.fontLoaded} />
 
         {/* Pikachu Containter */}
         <View style={styles.center}>
