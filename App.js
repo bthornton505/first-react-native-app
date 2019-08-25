@@ -24,7 +24,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.appContainer}>
 
        {/* Header Containter */}
         <View style={styles.headerContainer}>
@@ -83,7 +83,7 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  appContainer: {
     flex: 1
   },
   headerContainer: {
