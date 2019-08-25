@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
 
 import Header from './components/Header'
+import Pikachu from './components/Pikachu'
 import MainMenu from './containers/MainMenu'
 
 export default class App extends Component {
@@ -25,51 +26,13 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.appContainer}>
-
-       <Header style={styles} setFont={this.state.fontLoaded} />
-
-        {/* Pikachu Containter */}
-        <View style={styles.center}>
-          <Image style={styles.mainImg} source={require('./images/derp-pikachu-v2.png')} />
-        </View>
-
-        {/* Main Menu Containter */}
-        <View style={styles.mainMenuContainer}>
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity onPress={this.handlePress}>
-              {
-                this.state.fontLoaded ? (
-                  <Text style={styles.button}>
-                    Pokemon
-                  </Text>
-                ) : null
-              }
-            </TouchableOpacity>
-          </View>
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity onPress={this.handlePress}>
-              {
-                this.state.fontLoaded ? (
-                  <Text style={styles.button}>
-                    Items
-                  </Text>
-                ) : null
-              }
-            </TouchableOpacity>
-          </View>
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity onPress={this.handlePress}>
-              {
-                this.state.fontLoaded ? (
-                  <Text style={styles.button}>
-                    Moves
-                  </Text>
-                ) : null
-              }
-            </TouchableOpacity>
-          </View>
-        </View>
-
+        <Header style={styles} setFont={this.state.fontLoaded} />
+        <Pikachu style={styles} />
+        <MainMenu
+          style={styles}
+          setFont={this.state.fontLoaded}
+          handlePress={this.handlePress}
+        />
       </View>
     );
   }
