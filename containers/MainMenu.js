@@ -7,7 +7,7 @@ const MainMenu = (props) => {
   return(
     <View style={props.style.mainMenuContainer}>
       <View style={props.style.buttonContainer}>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('PokemonScreen')}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Pokemon')}>
           {
             props.setFont ? (
               <Text style={props.style.button}>
