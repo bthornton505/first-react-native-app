@@ -1,92 +1,26 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import * as Font from 'expo-font';
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
-import Header from './components/Header'
-import Pikachu from './components/Pikachu'
-import MainMenu from './containers/MainMenu'
+import HomeScreen from './containers/HomeScreen'
+import PokemonScreen from './containers/PokemonScreen'
 
-export default class App extends Component {
-  state = {
-    fontLoaded: false,
-  };
-
-  async componentDidMount() {
-    await Font.loadAsync({
-      'press-start-2p': require('./assets/fonts/PressStart2P-Regular.ttf')
-    });
-
-    this.setState({ fontLoaded: true });
-  };
-
-  handlePress = () => {
-    alert('151 Awesome Pokemon!')
-  }
-
+class App extends Component {
   render() {
     return (
-      <View style={styles.appContainer}>
-        <Header style={styles} setFont={this.state.fontLoaded} />
-        <Pikachu style={styles} />
-        <MainMenu
-          style={styles}
-          setFont={this.state.fontLoaded}
-          handlePress={this.handlePress}
-        />
-      </View>
+      <AppContainer />
     );
   }
 }
 
-const styles = StyleSheet.create({
-  appContainer: {
-    flex: 1
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: HomeScreen
   },
-  headerContainer: {
-    height: '15%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgb(234, 34, 45)',
-    // backgroundColor: 'black',
-  },
-  header: {
-    fontFamily: 'press-start-2p',
-    color: 'white',
-    fontSize: 45,
-    paddingTop: 32,
-    top: 10
-  },
-  center: {
-    height: '27%',
-    alignItems: 'center',
-    backgroundColor: 'rgb(234, 34, 45)',
-  },
-  mainImg: {
-    width: 700,
-    height: 300,
-    position: 'relative',
-    bottom: 30,
-    shadowOpacity: 1,
-    shadowRadius: 23,
-  },
-  mainMenuContainer: {
-    height: '58%',
-    backgroundColor: 'rgb(234, 34, 45)',
-    // backgroundColor: 'black',
-  },
-  buttonContainer: {
-    marginTop: 20,
-    marginLeft: 50,
-    marginRight: 50,
-    padding: 15,
-    backgroundColor: '#FFF',
-    borderWidth: 3,
-    borderRadius: 40,
-  },
-  button: {
-    fontFamily: 'press-start-2p',
-    color: 'black',
-    textAlign: 'center',
-    padding: 12,
+  Pokemon: {
+    screen: PokemonScreen
   },
 });
+
+const AppContainer = createAppContainer(AppNavigator);
+
+export default createAppContainer(AppNavigator);
