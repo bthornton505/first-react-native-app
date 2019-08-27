@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import * as Font from 'expo-font';
 
 import Header from '../components/Header'
@@ -28,11 +28,42 @@ export default class HomeScreen extends Component {
       <View>
         <Header style={styles} setFont={this.state.fontLoaded} />
         <Pikachu style={styles} />
-        <MainMenu
-          style={styles}
-          setFont={this.state.fontLoaded}
-          handlePress={this.handlePress}
-        />
+
+        <View style={styles.mainMenuContainer}>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Pokemon')}>
+              {
+                this.state.fontLoaded ? (
+                  <Text style={styles.button}>
+                    Pokemon
+                  </Text>
+                ) : null
+              }
+            </TouchableOpacity>
+          </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity onPress={this.handlePress}>
+              {
+                this.state.fontLoaded ? (
+                  <Text style={styles.button}>
+                    Items
+                  </Text>
+                ) : null
+              }
+            </TouchableOpacity>
+          </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity onPress={this.handlePress}>
+              {
+                this.state.fontLoaded ? (
+                  <Text style={styles.button}>
+                    Moves
+                  </Text>
+                ) : null
+              }
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
     );
   }
@@ -47,7 +78,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'rgb(234, 34, 45)',
-    backgroundColor: 'black',
+    // backgroundColor: 'black',
   },
   header: {
     fontFamily: 'press-start-2p',
