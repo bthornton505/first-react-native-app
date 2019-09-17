@@ -5,7 +5,7 @@ import Pokemon from './Pokemon';
 const AllPokemon = (props) => {
   const { pokemon, styles } = props
   return(
-    <View>
+    <View style={styles.pokemonList}>
       <FlatList
         data={pokemon.results}
         renderItem={(pokemon) =>

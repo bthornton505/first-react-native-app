@@ -9,7 +9,7 @@ const Pokemon = (props) => {
   return(
     <View key={pokemon.item.name}>
       <Image style={styles.pokemonSprite} source={Images[pokemonIndex]} />
-      <Text style={styles.pokemon}>{pokemon.item.name}</Text>
+      <Text style={styles.pokemonText}>{pokemon.item.name}</Text>
     </View>
   )
 }

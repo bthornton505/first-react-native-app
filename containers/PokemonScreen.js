@@ -74,17 +74,24 @@ const styles = StyleSheet.create({
     height: '85%',
     backgroundColor: 'rgb(234, 34, 45)',
   },
-  pokemon: {
+  pokemonText: {
     fontFamily: 'press-start-2p',
-    fontSize: 18,
+    fontSize: 14,
+    alignItems: 'center',
     color: 'white',
-    height: 44,
-    padding: 10,
-    borderStyle: 'solid',
-    borderTopWidth: 5,
-    borderBottomWidth: 5
+    // height: 44,
+    padding: 15,
+    // borderStyle: 'solid',
+    // borderTopWidth: 5,
+    // borderBottomWidth: 5
+  },
+  pokemonList: {
+    display: 'flex',
+    padding: 15
   },
   pokemonSprite: {
+    padding: 15,
+    alignItems: 'center',
     // width: 700,
     // height: 300,
     // position: 'relative',
