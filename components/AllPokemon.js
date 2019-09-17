@@ -1,14 +1,16 @@
 import React from 'react'
 import { StyleSheet, View, Text, FlatList } from 'react-native';
+import Pokemon from './Pokemon';
 
 const AllPokemon = (props) => {
-  const { pokemon, id } = props
+  const { pokemon, styles } = props
   return(
     <View>
       <FlatList
         data={pokemon.results}
         renderItem={(pokemon) =>
-          <Text style={styles.pokemon}>{pokemon.item.name}</Text>
+          // console.log(pokemon)
+          <Pokemon styles={styles} pokemon={pokemon}/>
         }
       />
     </View>
@@ -17,13 +19,22 @@ const AllPokemon = (props) => {
 
 export default AllPokemon;
 
-const styles = StyleSheet.create({
-  pokemon: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
-    borderStyle: 'solid',
-    borderTopWidth: 5,
-    borderBottomWidth: 5
-  },
-})
+// const styles = StyleSheet.create({
+//   pokemon: {
+//     padding: 10,
+//     fontSize: 18,
+//     height: 44,
+//     borderStyle: 'solid',
+//     borderTopWidth: 5,
+//     borderBottomWidth: 5
+//   },
+// }
+
+// What I have in pokemon object
+// Object {
+//   "index": 9,
+//   "item": Object {
+//     "name": "caterpie",
+//     "url": "https://pokeapi.co/api/v2/pokemon/10/",
+//   },
+// }
